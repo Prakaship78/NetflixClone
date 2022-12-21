@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		75B510F729538904009F7FB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B510F629538904009F7FB3 /* AppDelegate.swift */; };
 		75B510F929538904009F7FB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B510F829538904009F7FB3 /* SceneDelegate.swift */; };
-		75B510FB29538904009F7FB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B510FA29538904009F7FB3 /* ViewController.swift */; };
-		75B510FE29538904009F7FB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B510FC29538904009F7FB3 /* Main.storyboard */; };
+		75B510FB29538904009F7FB3 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B510FA29538904009F7FB3 /* MainTabBarViewController.swift */; };
 		75B5110129538904009F7FB3 /* NetflixClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B510FF29538904009F7FB3 /* NetflixClone.xcdatamodeld */; };
 		75B5110329538905009F7FB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75B5110229538905009F7FB3 /* Assets.xcassets */; };
 		75B5110629538905009F7FB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B5110429538905009F7FB3 /* LaunchScreen.storyboard */; };
@@ -20,8 +19,7 @@
 		75B510F329538904009F7FB3 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B510F629538904009F7FB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75B510F829538904009F7FB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		75B510FA29538904009F7FB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		75B510FD29538904009F7FB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		75B510FA29538904009F7FB3 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		75B5110029538904009F7FB3 /* NetflixClone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NetflixClone.xcdatamodel; sourceTree = "<group>"; };
 		75B5110229538905009F7FB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75B5110529538905009F7FB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,16 +56,48 @@
 		75B510F529538904009F7FB3 /* NetflixClone */ = {
 			isa = PBXGroup;
 			children = (
+				75B5110D29538A13009F7FB3 /* Models */,
+				75B5110F29538A51009F7FB3 /* View */,
+				75B5111029538A7F009F7FB3 /* Controllers */,
+				75B5110E29538A31009F7FB3 /* View Models */,
+				75B510FA29538904009F7FB3 /* MainTabBarViewController.swift */,
 				75B510F629538904009F7FB3 /* AppDelegate.swift */,
 				75B510F829538904009F7FB3 /* SceneDelegate.swift */,
-				75B510FA29538904009F7FB3 /* ViewController.swift */,
-				75B510FC29538904009F7FB3 /* Main.storyboard */,
 				75B5110229538905009F7FB3 /* Assets.xcassets */,
 				75B5110429538905009F7FB3 /* LaunchScreen.storyboard */,
 				75B5110729538905009F7FB3 /* Info.plist */,
 				75B510FF29538904009F7FB3 /* NetflixClone.xcdatamodeld */,
 			);
 			path = NetflixClone;
+			sourceTree = "<group>";
+		};
+		75B5110D29538A13009F7FB3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		75B5110E29538A31009F7FB3 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Models";
+			path = Models;
+			sourceTree = "<group>";
+		};
+		75B5110F29538A51009F7FB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		75B5111029538A7F009F7FB3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +160,6 @@
 			files = (
 				75B5110629538905009F7FB3 /* LaunchScreen.storyboard in Resources */,
 				75B5110329538905009F7FB3 /* Assets.xcassets in Resources */,
-				75B510FE29538904009F7FB3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75B5110129538904009F7FB3 /* NetflixClone.xcdatamodeld in Sources */,
-				75B510FB29538904009F7FB3 /* ViewController.swift in Sources */,
+				75B510FB29538904009F7FB3 /* MainTabBarViewController.swift in Sources */,
 				75B510F729538904009F7FB3 /* AppDelegate.swift in Sources */,
 				75B510F929538904009F7FB3 /* SceneDelegate.swift in Sources */,
 			);
@@ -151,14 +180,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		75B510FC29538904009F7FB3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				75B510FD29538904009F7FB3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		75B5110429538905009F7FB3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -296,7 +317,6 @@
 				INFOPLIST_FILE = NetflixClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,7 +344,6 @@
 				INFOPLIST_FILE = NetflixClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

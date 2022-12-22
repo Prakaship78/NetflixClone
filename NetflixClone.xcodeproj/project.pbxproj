@@ -13,6 +13,10 @@
 		75B5110129538904009F7FB3 /* NetflixClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75B510FF29538904009F7FB3 /* NetflixClone.xcdatamodeld */; };
 		75B5110329538905009F7FB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75B5110229538905009F7FB3 /* Assets.xcassets */; };
 		75B5110629538905009F7FB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75B5110429538905009F7FB3 /* LaunchScreen.storyboard */; };
+		75D44719295407EE002306C7 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D44718295407EE002306C7 /* HomeVC.swift */; };
+		75D4471B29540809002306C7 /* UpcomingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D4471A29540809002306C7 /* UpcomingVC.swift */; };
+		75D4471D2954081E002306C7 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D4471C2954081E002306C7 /* SearchVC.swift */; };
+		75D4471F29540848002306C7 /* DownloadsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D4471E29540848002306C7 /* DownloadsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		75B5110229538905009F7FB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75B5110529538905009F7FB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75B5110729538905009F7FB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75D44718295407EE002306C7 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		75D4471A29540809002306C7 /* UpcomingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingVC.swift; sourceTree = "<group>"; };
+		75D4471C2954081E002306C7 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		75D4471E29540848002306C7 /* DownloadsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,10 @@
 		75B5111029538A7F009F7FB3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				75D44718295407EE002306C7 /* HomeVC.swift */,
+				75D4471A29540809002306C7 /* UpcomingVC.swift */,
+				75D4471C2954081E002306C7 /* SearchVC.swift */,
+				75D4471E29540848002306C7 /* DownloadsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,10 +182,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75D4471F29540848002306C7 /* DownloadsVC.swift in Sources */,
 				75B5110129538904009F7FB3 /* NetflixClone.xcdatamodeld in Sources */,
+				75D44719295407EE002306C7 /* HomeVC.swift in Sources */,
 				75B510FB29538904009F7FB3 /* MainTabBarViewController.swift in Sources */,
 				75B510F729538904009F7FB3 /* AppDelegate.swift in Sources */,
+				75D4471B29540809002306C7 /* UpcomingVC.swift in Sources */,
 				75B510F929538904009F7FB3 /* SceneDelegate.swift in Sources */,
+				75D4471D2954081E002306C7 /* SearchVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

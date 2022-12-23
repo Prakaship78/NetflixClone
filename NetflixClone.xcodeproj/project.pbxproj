@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		759E308A2955640700E07700 /* ApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759E30892955640700E07700 /* ApiCaller.swift */; };
+		759E308C2955654F00E07700 /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759E308B2955654F00E07700 /* MoviesModel.swift */; };
 		75B510F729538904009F7FB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B510F629538904009F7FB3 /* AppDelegate.swift */; };
 		75B510F929538904009F7FB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B510F829538904009F7FB3 /* SceneDelegate.swift */; };
 		75B510FB29538904009F7FB3 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B510FA29538904009F7FB3 /* MainTabBarViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		759E30892955640700E07700 /* ApiCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCaller.swift; sourceTree = "<group>"; };
+		759E308B2955654F00E07700 /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
 		75B510F329538904009F7FB3 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B510F629538904009F7FB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75B510F829538904009F7FB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		759E3087295563D300E07700 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				759E30892955640700E07700 /* ApiCaller.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		759E3088295563DE00E07700 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		75B510EA29538904009F7FB3 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +83,8 @@
 		75B510F529538904009F7FB3 /* NetflixClone */ = {
 			isa = PBXGroup;
 			children = (
+				759E3087295563D300E07700 /* Managers */,
+				759E3088295563DE00E07700 /* Resources */,
 				75B5110D29538A13009F7FB3 /* Models */,
 				75B5110F29538A51009F7FB3 /* View */,
 				75B5111029538A7F009F7FB3 /* Controllers */,
@@ -82,6 +103,7 @@
 		75B5110D29538A13009F7FB3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				759E308B2955654F00E07700 /* MoviesModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,6 +211,8 @@
 				75B510F729538904009F7FB3 /* AppDelegate.swift in Sources */,
 				75D4471B29540809002306C7 /* UpcomingVC.swift in Sources */,
 				75B510F929538904009F7FB3 /* SceneDelegate.swift in Sources */,
+				759E308C2955654F00E07700 /* MoviesModel.swift in Sources */,
+				759E308A2955640700E07700 /* ApiCaller.swift in Sources */,
 				75D4471D2954081E002306C7 /* SearchVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,12 +9,14 @@ import UIKit
 
 class UpcomingVC: UIViewController {
     
+    private var movies : [Movie] = [Movie]()
+    
     private let upcomingTable : UITableView = {
         let table = UITableView()
         table.register(UITableViewCell.self,forCellReuseIdentifier: "cell")
         return table
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -25,6 +27,7 @@ class UpcomingVC: UIViewController {
         view.addSubview(upcomingTable)
         upcomingTable.delegate = self
         upcomingTable.dataSource = self
+        fetchUpcoming()
         
         
     }
@@ -34,12 +37,27 @@ class UpcomingVC: UIViewController {
         upcomingTable.frame = view.bounds
     }
     
-
+    private func fetchUpcoming() {
+        ApiCaller.shared.getUpcomingMovies {[weak self] results in
+            switch results {
+            case.success(let movies):
+                self?.movies = movies
+                DispatchQueue.main.async { [weak self] in
+                    self?.upcomingTable.reloadData()
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    
 }
 
 extension UpcomingVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

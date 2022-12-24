@@ -12,9 +12,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        ApiCaller.shared.getUpcomingMovies { data in
-            
-        }
+        
     }
     
     

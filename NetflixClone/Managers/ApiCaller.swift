@@ -29,7 +29,6 @@ class ApiCaller {
             }
             do {
                 let results = try JSONDecoder().decode(MoviesModel.self, from: data)
-                print(results)
                 completion(.success(results.results))
             } catch {
                 print(error.localizedDescription)

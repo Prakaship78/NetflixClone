@@ -13,7 +13,7 @@ class UpcomingVC: UIViewController {
     
     private let upcomingTable : UITableView = {
         let table = UITableView()
-        table.register(UITableViewCell.self,forCellReuseIdentifier: "cell")
+        table.register(MovieTableTableViewCell.self,forCellReuseIdentifier: MovieTableTableViewCell.identifier)
         return table
     }()
     
@@ -61,8 +61,8 @@ extension UpcomingVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .red
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableTableViewCell.identifier, for: indexPath) as? MovieTableTableViewCell else {return UITableViewCell()}
+        cell.configure(with: MovieViewModel(titleName: movies[indexPath.row].original_title ?? "", posterUrl: movies[indexPath.row].poster_path ?? ""))
         return cell
     }
     

@@ -11,6 +11,7 @@
 		754A31C22956C3B400FAC4DE /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 754A31C12956C3B400FAC4DE /* SDWebImage */; };
 		754A31C42956C3B400FAC4DE /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 754A31C32956C3B400FAC4DE /* SDWebImageMapKit */; };
 		754A31C62956C51800FAC4DE /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A31C52956C51800FAC4DE /* MovieViewModel.swift */; };
+		75607BB12958B1D50055018E /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75607BB02958B1D50055018E /* HeroHeaderUIView.swift */; };
 		759E308A2955640700E07700 /* ApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759E30892955640700E07700 /* ApiCaller.swift */; };
 		759E308C2955654F00E07700 /* MoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759E308B2955654F00E07700 /* MoviesModel.swift */; };
 		75B510F729538904009F7FB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B510F629538904009F7FB3 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		754A31BE2956BE8C00FAC4DE /* MovieTableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableTableViewCell.swift; sourceTree = "<group>"; };
 		754A31C52956C51800FAC4DE /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		75607BB02958B1D50055018E /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 		759E30892955640700E07700 /* ApiCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCaller.swift; sourceTree = "<group>"; };
 		759E308B2955654F00E07700 /* MoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModel.swift; sourceTree = "<group>"; };
 		75B510F329538904009F7FB3 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				754A31BE2956BE8C00FAC4DE /* MovieTableTableViewCell.swift */,
+				75607BB02958B1D50055018E /* HeroHeaderUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				75B510F729538904009F7FB3 /* AppDelegate.swift in Sources */,
 				75D4471B29540809002306C7 /* UpcomingVC.swift in Sources */,
 				754A31BF2956BE8C00FAC4DE /* MovieTableTableViewCell.swift in Sources */,
+				75607BB12958B1D50055018E /* HeroHeaderUIView.swift in Sources */,
 				75B510F929538904009F7FB3 /* SceneDelegate.swift in Sources */,
 				759E308C2955654F00E07700 /* MoviesModel.swift in Sources */,
 				759E308A2955640700E07700 /* ApiCaller.swift in Sources */,

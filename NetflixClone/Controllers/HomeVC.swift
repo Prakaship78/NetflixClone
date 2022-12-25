@@ -9,6 +9,8 @@ import UIKit
 
 class HomeVC: UIViewController {
     
+    private var headerView : HeroHeaderUIView?
+    
     private let homeFeedTable : UITableView = {
         let table = UITableView()
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -22,6 +24,9 @@ class HomeVC: UIViewController {
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
         configureNavbar()
+        
+        headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 300))
+        homeFeedTable.tableHeaderView = headerView
         
     }
     

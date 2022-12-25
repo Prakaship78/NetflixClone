@@ -40,6 +40,7 @@ class HeroHeaderUIView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(heroImageView)
+        addGradient()
         addSubview(playButton)
         addSubview(downloadButton)
         applyConstraints()
@@ -52,6 +53,16 @@ class HeroHeaderUIView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         heroImageView.frame = bounds
+    }
+    
+    private func addGradient(){
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+            UIColor.clear.cgColor,
+            UIColor.systemBackground.cgColor
+        ]
+        gradientLayer.frame = bounds
+        layer.addSublayer(gradientLayer)
     }
     
     private func applyConstraints() {

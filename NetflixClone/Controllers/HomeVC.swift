@@ -7,6 +7,14 @@
 
 import UIKit
 
+enum Sections : Int {
+    case TrendingMovies = 0
+    case TrendingTv = 1
+    case Popular = 2
+    case Upcoming = 3
+    case TopRated = 4
+}
+
 class HomeVC: UIViewController {
     
     private var headerView : HeroHeaderUIView?
@@ -58,10 +66,62 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath)
-        cell.backgroundColor = .systemRed
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {return UITableViewCell()}
+        switch indexPath.section {
+        case Sections.TrendingMovies.rawValue :
+            ApiCaller.shared.getTrendingMovies { results in
+                switch results{
+                case.success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.TrendingTv.rawValue:
+            ApiCaller.shared.getTrendingTvs { results in
+                switch results{
+                case.success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.Popular.rawValue:
+            ApiCaller.shared.getPopularMovies { results in
+                switch results{
+                case.success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.Upcoming.rawValue:
+            ApiCaller.shared.getUpcomingMovies { results in
+                switch results{
+                case.success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.TopRated.rawValue:
+            ApiCaller.shared.getTopRated { results in
+                switch results{
+                case.success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+        default:
+            return UITableViewCell()
+        }
+    
         return cell
     }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
@@ -87,3 +147,10 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+
+    
+    
+
+
+

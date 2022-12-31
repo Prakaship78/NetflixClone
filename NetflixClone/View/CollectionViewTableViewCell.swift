@@ -7,8 +7,9 @@
 
 import UIKit
 
+
 protocol CollectionViewTableViewCellDelegate : AnyObject {
-    func collectionViewTableViewCellDidTap(_ cell : CollectionViewTableViewCell, viewMode: MoviePreviewViewModel)
+    func collectionViewTableViewCellDidTapCell(_ cell : CollectionViewTableViewCell, viewModel : MoviePreviewViewModel)
 }
 
 class CollectionViewTableViewCell: UITableViewCell {
@@ -47,9 +48,10 @@ class CollectionViewTableViewCell: UITableViewCell {
     }
     
     public func configure(with movies : [Movie]){
-        self.movies = movies
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
+        
+        DispatchQueue.main.async {[weak self] in
+            self?.movies = movies
+            self?.collectionView.reloadData()
         }
     }
 
@@ -67,6 +69,13 @@ extension CollectionViewTableViewCell : UICollectionViewDelegate,UICollectionVie
         guard let model = movies[indexPath.row].poster_path else {return UICollectionViewCell()}
         cell.configure(with: model)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let movie = movies[indexPath.row]
+        let viewModel = MoviePreviewViewModel(title: movie.original_title, posterUrl: movie.poster_path, titleOverView: movie.overview)
+        delegate?.collectionViewTableViewCellDidTapCell(self ,viewModel: viewModel)
     }
     
 }

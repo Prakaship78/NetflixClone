@@ -72,6 +72,12 @@ extension UpcomingVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        DispatchQueue.main.async { [weak self] in
+            let vc = MovieDetailsVC()
+            guard let movie = self?.movies[indexPath.row] else {return}
+            vc.configure(with: MoviePreviewViewModel(title: movie.original_title, posterUrl: movie.poster_path, titleOverView: movie.overview))
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     

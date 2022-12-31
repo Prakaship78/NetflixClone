@@ -78,10 +78,21 @@ extension SearchVC : UITableViewDelegate, UITableViewDataSource {
         return 150
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        DispatchQueue.main.async { [weak self] in
+            let vc = MovieDetailsVC()
+            guard let movie = self?.movies[indexPath.row] else {return}
+            vc.configure(with: MoviePreviewViewModel(title: movie.original_title, posterUrl: movie.poster_path, titleOverView: movie.overview))
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     
 }
 
-extension SearchVC : UISearchResultsUpdating {
+extension SearchVC : UISearchResultsUpdating , SearchResultsVCDelegate{
+  
     
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -90,6 +101,7 @@ extension SearchVC : UISearchResultsUpdating {
               !querry.trimmingCharacters(in: .whitespaces).isEmpty,
               querry.trimmingCharacters(in: .whitespaces).count >= 3,
               let resultsController = searchController.searchResultsController as? SearchResultsVC else {return}
+        resultsController.delegate = self
         ApiCaller.shared.search(with: querry) {results in
             switch results {
             case.success(let movies):
@@ -105,6 +117,15 @@ extension SearchVC : UISearchResultsUpdating {
     }
     
     
+    
+    
+    func searchResultsViewControllerDidTapItem(_ viewModel: MoviePreviewViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            let vc = MovieDetailsVC()
+            vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     
 }

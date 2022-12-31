@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol SearchResultsVCDelegate : AnyObject {
+    func searchResultsViewControllerDidTapItem(_ viewModel : MoviePreviewViewModel)
+}
+
 class SearchResultsVC: UIViewController {
     
     public var movies : [Movie] = [Movie]()
+    
+    public weak var delegate : SearchResultsVCDelegate?
         
     public let searchResultsCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -45,6 +51,13 @@ extension SearchResultsVC : UICollectionViewDelegate, UICollectionViewDataSource
         let movie = movies[indexPath.row]
         cell.configure(with: movie.poster_path ?? "")
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Collection view tapped")
+        let movie = movies[indexPath.row]
+        collectionView.deselectItem(at: indexPath, animated: true)
+        self.delegate?.searchResultsViewControllerDidTapItem(MoviePreviewViewModel(title: movie.original_title, posterUrl: movie.poster_path, titleOverView: movie.overview))
     }
     
     

@@ -78,4 +78,20 @@ extension CollectionViewTableViewCell : UICollectionViewDelegate,UICollectionVie
         delegate?.collectionViewTableViewCellDidTapCell(self ,viewModel: viewModel)
     }
     
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
+        let config = UIContextMenuConfiguration(
+            identifier: nil,
+            previewProvider: nil
+        ) { _ in
+            let downloadAction = UIAction(title: "Download") { _ in
+                print("download action tapped \(indexPaths)")
+            }
+            let shareAction = UIAction(title: "Share") { _ in
+                print("share button tapped")
+            }
+            return UIMenu(title: "", options: .displayInline,children: [downloadAction,shareAction])
+        }
+        return config
+    }
+    
 }

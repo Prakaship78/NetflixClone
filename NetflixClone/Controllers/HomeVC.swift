@@ -17,7 +17,7 @@ enum Sections : Int {
 
 class HomeVC: UIViewController {
     
-    private var headerView : HeroHeaderUIView?
+    private var headerView : CarouselUIView?
     
     let sectionsTitles: [String] =  ["Trending Movies", "Trending Tv","Popular","Upcoming Movies","Top Rated"]
     
@@ -35,8 +35,9 @@ class HomeVC: UIViewController {
         homeFeedTable.dataSource = self
         configureNavbar()
         
-        headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 300))
+        headerView = CarouselUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 350))
         homeFeedTable.tableHeaderView = headerView
+        configureHeaderView()
         
     }
     
@@ -55,6 +56,18 @@ class HomeVC: UIViewController {
             UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
         ]
         navigationController?.navigationBar.tintColor = .white
+    }
+    
+    private func configureHeaderView() {
+        ApiCaller.shared.getTopRated { [weak self] results in
+            switch results {
+            case .success(let titles):
+                self?.headerView?.configure(with: titles)
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     

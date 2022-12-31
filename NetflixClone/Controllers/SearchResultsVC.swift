@@ -11,9 +11,9 @@ class SearchResultsVC: UIViewController {
     
     public var movies : [Movie] = [Movie]()
         
-    private let searchResultsCollectionView : UICollectionView = {
+    public let searchResultsCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: (UIScreen.main.bounds.width/3) - 10, height: 180)
+        layout.itemSize = CGSize(width: (UIScreen.main.bounds.width/3)-10, height: 180)
         layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)

@@ -90,8 +90,17 @@ extension SearchVC : UISearchResultsUpdating {
               !querry.trimmingCharacters(in: .whitespaces).isEmpty,
               querry.trimmingCharacters(in: .whitespaces).count >= 3,
               let resultsController = searchController.searchResultsController as? SearchResultsVC else {return}
-        
-        print(querry)
+        ApiCaller.shared.search(with: querry) {results in
+            switch results {
+            case.success(let movies):
+                DispatchQueue.main.async {
+                    resultsController.movies = movies
+                    resultsController.searchResultsCollectionView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
         
     }
     

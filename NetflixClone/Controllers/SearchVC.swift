@@ -12,7 +12,7 @@ class SearchVC: UIViewController {
     private var movies : [Movie] = [Movie]()
     
     private let searchController : UISearchController = {
-       let controller = UISearchController()
+        let controller = UISearchController(searchResultsController: SearchResultsVC())
         controller.searchBar.placeholder = "Search for a Movies and Tv Shows"
         controller.searchBar.searchBarStyle = .minimal
         return controller
@@ -23,7 +23,7 @@ class SearchVC: UIViewController {
         table.register(MovieTableTableViewCell.self, forCellReuseIdentifier: MovieTableTableViewCell.identifier)
         return table
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -31,12 +31,13 @@ class SearchVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         view.addSubview(discoverTable)
-   
+        
         discoverTable.delegate = self
         discoverTable.dataSource = self
         
         navigationItem.searchController = searchController
         fetchTopSearches()
+        searchController.searchResultsUpdater = self
     }
     
     private func fetchTopSearches(){
@@ -57,8 +58,8 @@ class SearchVC: UIViewController {
         super.viewDidLayoutSubviews()
         discoverTable.frame = view.bounds
     }
-   
-
+    
+    
 }
 
 extension SearchVC : UITableViewDelegate, UITableViewDataSource {
@@ -76,6 +77,25 @@ extension SearchVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
+    
+    
+}
+
+extension SearchVC : UISearchResultsUpdating {
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        guard let querry = searchBar.text,
+              !querry.trimmingCharacters(in: .whitespaces).isEmpty,
+              querry.trimmingCharacters(in: .whitespaces).count >= 3,
+              let resultsController = searchController.searchResultsController as? SearchResultsVC else {return}
+        
+        print(querry)
+        
+    }
+    
+    
     
     
 }

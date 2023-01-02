@@ -6,7 +6,7 @@ Things covered
 - 100% programmatic UI; no storyboards
 - Codable to parse JSON
 - Caching images (SDWebImage)
-- Collection Views with Diffable Data Source
+- Collection Views
 - Table Views
 - TabBar & Navigation Controller
 - Search Controller

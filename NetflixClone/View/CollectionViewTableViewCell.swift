@@ -20,6 +20,15 @@ class CollectionViewTableViewCell : UITableViewCell {
     
     weak var delegate : CollectionViewTableViewCellDelegate?
     
+    private let sectionTitleLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.textColor = .black
+        label.textAlignment = .left
+        return label
+    }()
+    
     private let collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 144, height: 200)
@@ -31,6 +40,7 @@ class CollectionViewTableViewCell : UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addSubview(sectionTitleLabel)
         addSubview(collectionView)
         
         collectionView.delegate = self
@@ -38,9 +48,13 @@ class CollectionViewTableViewCell : UITableViewCell {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
+            sectionTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            sectionTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            sectionTitleLabel.topAnchor.constraint(equalTo: topAnchor,constant: 16),
+            
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.topAnchor.constraint(equalTo: sectionTitleLabel.bottomAnchor,constant: 8),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
@@ -50,9 +64,10 @@ class CollectionViewTableViewCell : UITableViewCell {
     }
     
     
-    public func configure(with titles: [Movie]){
-        self.movies = titles
+    public func configure(with data: HomeMovies){
+        self.movies = data.movies
         DispatchQueue.main.async {[weak self] in
+            self?.sectionTitleLabel.text = data.name
             self?.collectionView.reloadData()
             
         }

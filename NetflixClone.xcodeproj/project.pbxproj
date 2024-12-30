@@ -33,6 +33,7 @@
 		452D4B9F2CF74B2700070308 /* Controllers */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Controllers; sourceTree = "<group>"; };
 		452D4BA92CF74B6200070308 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
 		452D4BB22CF74B6B00070308 /* View */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = View; sourceTree = "<group>"; };
+		4584662E2D22B7C100CD2AD9 /* ApiHelper */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ApiHelper; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,7 @@
 		75B510F529538904009F7FB3 /* NetflixClone */ = {
 			isa = PBXGroup;
 			children = (
+				4584662E2D22B7C100CD2AD9 /* ApiHelper */,
 				452D4B972CF74B2300070308 /* Managers */,
 				452D4BB22CF74B6B00070308 /* View */,
 				452D4B9F2CF74B2700070308 /* Controllers */,
@@ -102,6 +104,7 @@
 				452D4B9F2CF74B2700070308 /* Controllers */,
 				452D4BA92CF74B6200070308 /* Models */,
 				452D4BB22CF74B6B00070308 /* View */,
+				4584662E2D22B7C100CD2AD9 /* ApiHelper */,
 			);
 			name = NetflixClone;
 			packageProductDependencies = (

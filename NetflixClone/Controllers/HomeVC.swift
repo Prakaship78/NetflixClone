@@ -94,6 +94,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+        cell.contentView.isHidden = true
         cell.delegate = self
         switch indexPath.section{
         case Sections.TrendingMovies.rawValue:
